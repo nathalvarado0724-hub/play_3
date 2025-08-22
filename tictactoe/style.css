@@ -1,0 +1,120 @@
+/* Base styling for the page */
+body {
+    background: #dbe6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Board container */
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 20px;
+  }
+  
+  /* Cells with neumorphic styling */
+  .cell {
+    background: #dbe6f0;
+    border-radius: 15px;
+    box-shadow:
+      6px 6px 12px #babecc,
+      -6px -6px 12px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  /* Hover effect to simulate pressing */
+  .cell:hover {
+    box-shadow:
+      inset 6px 6px 12px #babecc,
+      inset -6px -6px 12px #ffffff;
+    transform: scale(1.05);
+  }
+  
+  /* Show X or O using pseudo-elements for cleaner HTML */
+  .cell.x::after {
+    content: "X";
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .cell.o::after {
+    content: "O";
+    color: #555;
+    font-weight: bold;
+  }
+  
+  /* Winning message styling */
+  .winning-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #dbe6f0;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow:
+      6px 6px 12px #babecc,
+      -6px -6px 12px #ffffff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #555;
+  }
+  
+  .winning-message.show {
+    display: flex;
+  }
+  
+  .winning-message button {
+    margin-top: 20px;
+    background: #dbe6f0;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 12px;
+    box-shadow:
+      5px 5px 10px #babecc,
+      -5px -5px 10px #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .winning-message button:hover {
+    box-shadow:
+      inset 5px 5px 10px #babecc,
+      inset -5px -5px 10px #ffffff;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 500px) {
+    #board {
+      grid-template-columns: repeat(3, 70px);
+      grid-template-rows: repeat(3, 70px);
+      gap: 15px;
+    }
+  
+    .cell {
+      font-size: 2.2rem;
+    }
+  
+    .winning-message {
+      padding: 20px 25px;
+      font-size: 1rem;
+    }
+  }
+  h1{
+    font-size: 1rem;
+    padding:20px;
+  }
